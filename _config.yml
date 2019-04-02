@@ -1,0 +1,61 @@
+# Site settings
+title: Maria Blog
+# SEOTitle:吴小双的博客|Maria Blog
+url: "http://wuxiaoshuang.cn"    # the protocol and hostname of your site, eg. `http://laobubu.github.io`
+baseurl: "" # the prefix of your site uri, eg. `"/jekyll-theme-EasyBook"` or empty string `""`
+#timezone: Asia/Chongqing
+description: "青年时期是豁达的时期,应该利用这个时期，养成豁达的性格"
+# Your information
+email: maria3708@163.com
+author: 吴小双
+avatar: /image/quanyecha.jpg
+profile: 做喜欢的事情，无愧于内心
+#twitter_username: twitter_username
+#github_username:  github_username
+profile_links:
+  Email: "mailto:maria3708@163.com"
+  # GitHub: "https://github.com/laobubu/jekyll-theme-EasyBook"
+  # You can add more profile links above, or edit _includes/sidebar.html 
+
+# Comment Service (Disqus or 多说)
+#  choose one and un-comment the line to active it
+disqus_shortname: Maria   # get one: https://disqus.com/admin/signup/
+#duoshuo_shortname: xxx  # get one: http://duoshuo.com/create-site/
+
+excerpt_separator: <!--more-->
+
+header:
+  links:             # Links on the header. Link to in-site page with a slash as prefix
+    技术: /technology/
+    SEO: /seo/
+    标签: /category/
+    健身: /fitness/
+    书籍: /book/
+    关于: /about/ 
+
+permalink: /archivers/:title
+plugins:
+ - jekyll-paginate
+ - jekyll-gist
+ - jemoji
+
+# Build settings
+paginate: 5
+paginate_path: "page:num"
+
+highlighter: rouge
+markdown: kramdown
+
+# https://jekyllrb.com/docs/configuration/#precedence
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  math_engine: mathjax

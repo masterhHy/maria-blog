@@ -1,0 +1,28 @@
+---
+layout: tags
+title: 健身
+permalink: /fitness/
+---
+
+<div class="home">
+  <h1 class="page-heading">{{page.title}}</h1>
+
+  <ul class="tag-post-list">
+
+    {% capture tags %}
+    {% for tag in site.tags %}
+    {{ tag[0] }}
+    {% endfor %}
+    {% endcapture %}
+    {% assign sortedtags = tags | split:' ' | sort %}
+
+    {% for tag in sortedtags %}
+    <h2 id="{{ tag }}">{{ tag }}</h2>
+    {% for post in site.tags[tag] %}
+    <li><span>{{ post.date | date: "%Y-%m-%d" }}</span> » <a href="{{ site.baseurl}}{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+    {% endfor %}
+  </ul>
+
+
+</div>

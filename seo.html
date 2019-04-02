@@ -1,0 +1,26 @@
+---
+layout: tags
+title: SEO
+permalink: /seo/
+---
+
+<div class="home">
+  <h1 class="page-heading">{{page.title}}</h1>
+
+  <ul class="tag-post-list">
+    {% for post in site.posts %}
+    {% unless post.next %}
+    <h2 class="category" id="y{{ post.date | date:'%Y' }}">{{ post.date | date:'%Y' }}</h2>
+    {% else %}
+    {% capture ydate %}{{post.date | date:'%Y'}}{% endcapture %}
+    {% capture ndate %}{{post.next.date | date:'%Y'}}{% endcapture %}
+    {% if ydate!=ndate %}
+    <h2 class="category" id="y{{ post.date | date:'%Y' }}">{{ post.date | date:'%Y' }}</h2>
+    {% endif %}
+    {% endunless %}
+    {% if post.title != null and post.type contains 'SEO' %}
+    <li><span>{{ post.date | date: "%Y-%m-%d" }}</span> » <a href="{{ site.baseurl}}{{ post.url }}">{{ post.title }}</a></li>
+    {% endif %}
+    {% endfor %}
+  </ul>
+</div>

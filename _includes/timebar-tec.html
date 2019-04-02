@@ -1,0 +1,18 @@
+<div class="col-box post-toc">
+  <div class="col-box-title">导航</div>
+  <ul class="catalog-nav">
+    {% assign count = 0 %}
+    {% for post in site.posts %}
+    {% if post.title != null and post.type contains '技术' %}
+    {% assign count = count | plus:1 %}
+    {% endif %}
+    {% capture ydate %}{{post.date | date:'%Y'}}{% endcapture %}
+    {% capture ndate %}{{post.previous.date | date:'%Y'}}{% endcapture %}
+    {% if ydate!=ndate %}
+    <a class="year-tag" data-scroll href="#y{{ post.date | date:'%Y' }}">{{ post.date | date:'%Y' }} ({{ count }})</h3>
+    {% assign count = 0 %}
+    {% endif %}
+    {% endfor %}
+  </ul>
+</div>
+<script src="{{ "/js/contentScroll.js " | prepend: site.baseurl }}" charset="utf-8"></script>

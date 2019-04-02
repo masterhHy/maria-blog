@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+{% include head.html %}
+
+<body>
+
+  {% include header.html %}
+
+  <div class="page-content">
+    <div class="wrapper">
+      <div class="col-main">
+        {{ content }}
+      </div>
+      <div class="col-second">
+        {% if content contains '<h1 class="page-heading">SEO</h1>' %}
+        {% include timebar-seo.html %}
+        {% elsif content contains '<h1 class="page-heading">技术</h1>' %}
+        {% include timebar-tec.html %}
+        {% elsif content contains '<h1 class="page-heading">标签</h1>' %}
+        {% include labelbar.html %}
+        {% elsif content contains '<h1 class="page-heading">健身</h1>' %}
+        {% include fitnessbar.html %}
+        {% elsif content contains '<h1 class="page-heading">书籍</h1>' %}
+        {% include timebar-book.html %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  {% include footer.html %}
+
+</body>
+
+</html>
